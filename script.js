@@ -1,43 +1,59 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Maus-Cursor Custom Logic
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
+
+window.addEventListener('mousemove', (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    // Dot folgt sofort
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    // Outline folgt verzögert (smooth animation)
+    cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+    }, { duration: 500, fill: "forwards" });
+});
+
+// 3D Tilt Effekt für die Karten
+const cards = document.querySelectorAll('.card-3d');
+
+cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        // Berechne Mausposition relativ zur Karte
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Berechne Rotation (Mitte der Karte ist 0)
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -10; // Max 10 Grad Rotation
+        const rotateY = ((x - centerX) / centerX) * 10;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    // Reset wenn Maus verlässt
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+    });
+});
+
+// Parallax Effekt beim Scrollen für Text
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
     
-    // Smooth Scrolling für Anker-Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    const title = document.querySelector('.hero-title');
+    const orbs = document.querySelectorAll('.floating-orb');
 
-    // Intersection Observer für Fade-In Animationen
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    // Titel bewegt sich langsamer als Scroll
+    title.style.transform = `translateY(${scrollY * 0.3}px)`;
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Animation nur einmal abspielen
-            }
-        });
-    }, observerOptions);
-
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => observer.observe(el));
-
-    // Navbar Hintergrund-Effekt beim Scrollen
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-            navbar.style.padding = '15px 50px';
-        } else {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            navbar.style.padding = '20px 50px';
-        }
-    });
+    // Orbs bewegen sich unterschiedlich
+    orbs[0].style.transform = `translateY(${scrollY * 0.15}px)`;
+    orbs[1].style.transform = `translateY(${scrollY * -0.1}px)`;
 });
