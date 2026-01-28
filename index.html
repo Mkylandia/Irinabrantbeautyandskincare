@@ -3,130 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irina Brant | High End Beauty</title>
+    <title>Irina Brant | Beyond Beauty</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Tenor+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="noise-overlay"></div>
+    <canvas id="lux-canvas"></canvas>
     
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <div class="cursor-glow"></div>
 
-    <nav class="navbar">
+    <nav>
         <div class="logo">IRINA BRANT</div>
-        <ul class="nav-links">
-            <li><a href="#philosophie">Essenz</a></li>
-            <li><a href="#programme">Rituale</a></li>
-            <li><a href="#preisliste">Menu</a></li>
-        </ul>
+        <div class="menu">
+            <a href="#skincare">Skincare</a>
+            <a href="#prices">Preise</a>
+            <a href="#booking" class="btn-book">Termin</a>
+        </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-container">
-            <h1 class="hero-title" data-speed="2">
-                <span class="d-block">BEYOND</span>
-                <span class="d-block outline-text">SKIN</span>
-            </h1>
-            <div class="hero-sub" data-speed="1">
-                <p>Est. 2024 &mdash; Irina Brant Beauty</p>
+        <div class="hero-content">
+            <h2 class="pre-title reveal-text">Est. 2024</h2>
+            <h1 class="main-title reveal-text">GOLDEN <br> <span class="hollow">ERA</span></h1>
+            <p class="subtitle reveal-text">High Performance Skincare & Aesthetics</p>
+            <div class="scroll-indicator">
+                <span>Explore</span>
+                <div class="line"></div>
             </div>
-            
-            <div class="floating-orb orb-1"></div>
-            <div class="floating-orb orb-2"></div>
         </div>
     </header>
 
-    <section id="philosophie" class="section">
-        <div class="text-reveal">
-            <p class="large-statement">
-                Hautpflege ist keine Routine. <br>
-                Es ist eine <span class="gold-text">Architektur der Schönheit.</span>
-            </p>
-        </div>
-    </section>
-
-    <section id="programme" class="section">
+    <section id="skincare" class="section">
         <div class="container">
-            <h3 class="section-label">Signature Treatments</h3>
-            <div class="cards-perspective">
-                
-                <div class="card-3d">
-                    <div class="card-content">
-                        <div class="card-number">01</div>
-                        <h4>Liquid Gold</h4>
-                        <p>24 Karat Infusion & Hyaluron Filler.</p>
-                        <div class="card-price">149 €</div>
+            <h3 class="section-heading" data-scroll>Signature Treatments</h3>
+            
+            <div class="cards-wrapper">
+                <div class="lux-card" data-scroll>
+                    <div class="card-inner">
+                        <span class="num">01</span>
+                        <h4>The Royal Lift</h4>
+                        <p>Muskelstimulation & 24k Gold Maske.</p>
+                        <div class="price-tag">180 €</div>
+                        <div class="shine"></div>
                     </div>
                 </div>
 
-                <div class="card-3d">
-                    <div class="card-content">
-                        <div class="card-number">02</div>
-                        <h4>Sculpting</h4>
-                        <p>Buccal Massage & Lymphdrainage.</p>
-                        <div class="card-price">110 €</div>
+                <div class="lux-card" data-scroll>
+                    <div class="card-inner">
+                        <span class="num">02</span>
+                        <h4>Glass Skin</h4>
+                        <p>Porenverfeinerung & Oxygen Infusion.</p>
+                        <div class="price-tag">120 €</div>
+                        <div class="shine"></div>
                     </div>
                 </div>
 
-                <div class="card-3d">
-                    <div class="card-content">
-                        <div class="card-number">03</div>
-                        <h4>Derma Reset</h4>
-                        <p>Chemisches Peeling Level 3.</p>
-                        <div class="card-price">189 €</div>
+                <div class="lux-card" data-scroll>
+                    <div class="card-inner">
+                        <span class="num">03</span>
+                        <h4>Deep Repair</h4>
+                        <p>Stammzellen-Therapie nach Microneedling.</p>
+                        <div class="price-tag">220 €</div>
+                        <div class="shine"></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="preisliste" class="section">
+    <section id="prices" class="section dark-section">
         <div class="container">
-            <div class="print-control">
-                <button onclick="window.print()" class="btn-gold">Druckversion erstellen</button>
+            <div class="price-header" data-scroll>
+                <h3>Das Menü</h3>
+                <button onclick="window.print()" class="print-trigger">
+                    <span>Preisliste Drucken</span>
+                    <div class="icon">🖨</div>
+                </button>
             </div>
 
-            <div class="paper-wrapper">
-                <div class="paper-sheet" id="printable-area">
-                    <div class="sheet-header">
-                        <h2>IRINA BRANT</h2>
-                        <span class="subtitle">SKINCARE MENU</span>
-                    </div>
+            <div class="price-paper">
+                <div class="paper-header">
+                    <h2>IRINA BRANT</h2>
+                    <p>OFFICIAL PRICE LIST</p>
+                </div>
 
-                    <div class="menu-grid">
-                        <div class="col">
-                            <h3>Face</h3>
-                            <ul>
-                                <li><span>Signature Cleanse</span> <span class="dots"></span> <b>85 €</b></li>
-                                <li><span>Microneedling Deep</span> <span class="dots"></span> <b>150 €</b></li>
-                                <li><span>Glow & Go</span> <span class="dots"></span> <b>65 €</b></li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <h3>Eyes & Brows</h3>
-                            <ul>
-                                <li><span>Brow Lifting</span> <span class="dots"></span> <b>55 €</b></li>
-                                <li><span>Lash Tinting</span> <span class="dots"></span> <b>15 €</b></li>
-                                <li><span>Full Shaping</span> <span class="dots"></span> <b>35 €</b></li>
-                            </ul>
-                        </div>
+                <div class="price-grid">
+                    <div class="category">
+                        <h4>Facials</h4>
+                        <ul>
+                            <li>
+                                <span class="name">Classic Glow</span>
+                                <span class="spacer"></span>
+                                <span class="cost">85 €</span>
+                            </li>
+                            <li>
+                                <span class="name">Anti-Age Intense</span>
+                                <span class="spacer"></span>
+                                <span class="cost">145 €</span>
+                            </li>
+                            <li>
+                                <span class="name">Akne Clear</span>
+                                <span class="spacer"></span>
+                                <span class="cost">95 €</span>
+                            </li>
+                        </ul>
                     </div>
                     
-                    <div class="sheet-footer">
-                        <p>Alle Preise inkl. MwSt. | Terminabsage 24h vorher.</p>
+                    <div class="category">
+                        <h4>Add-Ons</h4>
+                        <ul>
+                            <li>
+                                <span class="name">LED Lichttherapie</span>
+                                <span class="spacer"></span>
+                                <span class="cost">25 €</span>
+                            </li>
+                            <li>
+                                <span class="name">Hals & Dekolleté</span>
+                                <span class="spacer"></span>
+                                <span class="cost">40 €</span>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+                <div class="paper-footer">
+                    <p>Alle Preise inkl. MwSt.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Irina Brant &copy; 2024</p>
+        <p>Created for Excellence.</p>
     </footer>
 
     <script src="script.js"></script>
